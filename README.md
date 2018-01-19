@@ -4,6 +4,8 @@
 
 一个微信小程序游戏，滑动进行方块拼接
 
+![screenshot](screenshot.jpg)
+
 ## 源码目录介绍
 
 ``` text
