@@ -14,7 +14,7 @@
 │   ├── button.js                          // 帧动画的简易实现
 │   └── eventUtil.js                       // 游戏基本元素精灵类
 ├── libs
-│   ├── bezier.js                          // 用于进行淡入淡出动画的类库 https://github.com/gre/bezier-easing
+│   ├── bezier.js                          // 用于进行淡入淡出动画的类库 [https://github.com/gre/bezier-easing](https://github.com/gre/bezier-easing)
 │   ├── symbol.js                          // ES6 Symbol简易兼容
 │   └── weapp-adapter.js                   // 小游戏适配器
 ├── models
