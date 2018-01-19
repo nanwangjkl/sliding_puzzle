@@ -8,6 +8,21 @@ let gameMap = new GameMap()
 
 const helpButtonPadding = 15
 
+
+// 拼图图片
+const PUZZLE_EASY_SRC = 'images/puzzle-easy.jpg'
+const PUZZLE_EASY_WIDTH = 1000
+const PUZZLE_EASY_HEIGHT = 1000
+
+const PUZZLE_MIDDLE_SRC = 'images/puzzle-middle.jpg'
+const PUZZLE_MIDDLE_WIDTH = 1000
+const PUZZLE_MIDDLE_HEIGHT = 1000
+
+const PUZZLE_HARD_SRC = 'images/puzzle-hard.jpg'
+const PUZZLE_HARD_WIDTH = 1000
+const PUZZLE_HARD_HEIGHT = 1000
+
+// 菜单图片
 const IMG_START_SRC = 'images/start.png'
 const IMG_START_WIDTH = 800
 const IMG_START_HEIGHT = 1000
@@ -127,9 +142,7 @@ export default class GameInfo {
       hintContentRatio * IMG_HINT_CONTENT_WIDTH,
       hintContentRatio * IMG_HINT_CONTENT_HEIGHT
     )
-    this.puzzleImg = new Image()
-    this.puzzleImg.src = databus.puzzleImg.src
-
+    
     // 帮助按钮
     let helpRatio = (databus.screenWidth * 0.12) / IMG_HELP_WIDTH
     this.btnHelp = new Button(
@@ -162,12 +175,27 @@ export default class GameInfo {
     if (this.btnEasy.isTapped(event.x, event.y)) {
       databus.stage = 3
       databus.gameStart = true
+      databus.puzzleImg = {
+        src: PUZZLE_EASY_SRC,
+        width: PUZZLE_EASY_WIDTH,
+        height: PUZZLE_EASY_HEIGHT
+      }
     } else if (this.btnMiddle.isTapped(event.x, event.y)) {
       databus.stage = 4
       databus.gameStart = true
+      databus.puzzleImg = {
+        src: PUZZLE_MIDDLE_SRC,
+        width: PUZZLE_MIDDLE_WIDTH,
+        height: PUZZLE_MIDDLE_HEIGHT
+      }
     } else if (this.btnHard.isTapped(event.x, event.y)) {
       databus.stage = 5
       databus.gameStart = true
+      databus.puzzleImg = {
+        src: PUZZLE_HARD_SRC,
+        width: PUZZLE_HARD_WIDTH,
+        height: PUZZLE_HARD_HEIGHT
+      }
     } else {
       return
     }
@@ -183,6 +211,8 @@ export default class GameInfo {
     }
 
     databus.startTime = Date.now()
+    this.puzzleImg = new Image()
+    this.puzzleImg.src = databus.puzzleImg.src
   }
 
   tapGamePlaying(event) {

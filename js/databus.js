@@ -3,11 +3,6 @@ const screenWidth = window.innerWidth
 const screenHeight = window.innerHeight
 const contentWidth = window.innerWidth * 0.85
 
-// 拼图图片
-const PUZZLE_IMG_SRC = 'images/puzzle.jpg'
-const PUZZLE_IMG_WIDTH = 1000
-const PUZZLE_IMG_HEIGHT = 1000
-
 let instance
 
 
@@ -29,11 +24,7 @@ export default class DataBus {
     this.contentWidth = contentWidth
     this.contentPadding = (this.screenWidth - this.contentWidth) / 2
     this.contentPaddingTop = this.screenHeight - this.contentWidth - this.contentPadding;
-    this.puzzleImg = {
-      src: PUZZLE_IMG_SRC,
-      width: PUZZLE_IMG_WIDTH,
-      height: PUZZLE_IMG_HEIGHT
-    }
+    this.puzzleImg = null
 
 
     this.reset()
@@ -52,6 +43,7 @@ export default class DataBus {
     this.showHelp = false
     this.showHint = false
     this.emptyPosition = 0
+    this.puzzleImg = null
   }
 
   
