@@ -21,7 +21,7 @@
 │   └── piece.js                           // 拼图方块类
 ├── runtime
 │   ├── background.js                      // 背景类
-│   ├── gameinfo.js                        // 游戏菜单、按钮和分数
+│   ├── gameInfo.js                        // 游戏菜单、按钮和分数
 │   ├── gameMap.js                         // 用于提供游戏的随机地图
 │   └── music.js                           // 全局音效管理器
 ├── databus.js                             // 管控游戏状态

@@ -1,6 +1,6 @@
 import EventUtil from './base/eventUtil'
 import BackGround from './runtime/background'
-import GameInfo from './runtime/gameinfo'
+import GameInfo from './runtime/gameInfo'
 import DataBus from './databus'
 
 let ctx = canvas.getContext('2d')
@@ -12,10 +12,10 @@ let databus = new DataBus()
 export default class Main {
   constructor() {
     this.bg = new BackGround(ctx)
-    this.gameinfo = new GameInfo()
+    this.gameInfo = new GameInfo()
 
     let eventUtil = new EventUtil(((e) => {
-      this.gameinfo.tap(e)
+      this.gameInfo.tap(e)
     }).bind(this), ((e) => {
       this.movePieces(e.direction);
     }).bind(this))
@@ -94,7 +94,7 @@ export default class Main {
     databus.pieces.forEach((item) => {
       item.render(ctx);
     })
-    this.gameinfo.render(ctx)
+    this.gameInfo.render(ctx)
   }
 
   // 游戏逻辑更新主函数
