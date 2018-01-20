@@ -20,10 +20,6 @@ export default class Main {
       this.movePieces(e.direction);
     }).bind(this))
 
-    this.restart()
-  }
-
-  restart() {
     databus.reset()
 
     window.requestAnimationFrame(
@@ -75,7 +71,7 @@ export default class Main {
   }
 
   checkGameOver() {
-    if (databus.gameOver || databus.pieces.length===0) {
+    if (databus.gameOver || databus.pieces.length === 0) {
       return
     }
     for (let i = 0; i < databus.pieces.length; i++) {
@@ -107,20 +103,20 @@ export default class Main {
     let isAniPlaying = false
     databus.pieces.forEach((item) => {
       item.update();
-      if (item.ani!==1) {
+      if (item.ani !== 1) {
         isAniPlaying = true
       }
     })
 
     // 如果没有动画正在播放，查看游戏是否结束
     if (!isAniPlaying) {
-      this.checkGameOver()      
+      this.checkGameOver()
     }
   }
 
   // 实现游戏帧循环
   loop() {
-    this.update()    
+    this.update()
     this.render()
 
     window.requestAnimationFrame(
