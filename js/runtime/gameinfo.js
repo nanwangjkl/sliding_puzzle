@@ -46,7 +46,10 @@ const IMG_TIME_HEIGHT = 200
 const IMG_HELP_SRC = 'images/help.png'
 const IMG_HELP_WIDTH = 300
 const IMG_HELP_HEIGHT = 200
+
 const IMG_HELP_CONTENT_SRC = 'images/puzzle-help.png'
+const IMG_HELP_CONTENT_WIDTH = '640'
+const IMG_HELP_CONTENT_HEIGHT = '907'
 
 const IMG_HINT_SRC = 'images/hint.png'
 const IMG_HINT_WIDTH = 300
@@ -152,12 +155,15 @@ export default class GameInfo {
       helpRatio * IMG_HELP_WIDTH,
       helpRatio * IMG_HELP_HEIGHT
     )
+
+    // 帮助内容
+    let helpContentHeight = (databus.screenWidth / IMG_HELP_CONTENT_WIDTH) * IMG_HELP_CONTENT_HEIGHT
     this.helpContent = new Button(
       IMG_HELP_CONTENT_SRC,
       0,
-      0,
+      databus.screenHeight - helpContentHeight,
       databus.screenWidth,
-      databus.screenHeight
+      helpContentHeight
     )
   }
 
@@ -280,6 +286,10 @@ export default class GameInfo {
     this.btnHint.render(ctx)
     this.btnReplay.render(ctx)    
     if (databus.showHelp) {
+      ctx.fillStyle = "black";
+      ctx.globalAlpha = 0.6;
+      ctx.fillRect(0, 0, databus.screenWidth, databus.screenHeight);
+      ctx.globalAlpha = 1;
       this.helpContent.render(ctx)
     }
     if (databus.showHint) {
