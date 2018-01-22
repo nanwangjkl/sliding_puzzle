@@ -11,8 +11,8 @@
 ``` text
 ./js
 ├── base                                   // 定义游戏开发基础类
-│   ├── button.js                          // 帧动画的简易实现
-│   └── eventUtil.js                       // 游戏基本元素精灵类
+│   ├── button.js                          // 游戏内可点击图片类
+│   └── eventUtil.js                       // 处理点击事件的类
 ├── libs
 │   ├── bezier.js                          // 用于进行淡入淡出动画的类库 https://github.com/gre/bezier-easing
 │   ├── symbol.js                          // ES6 Symbol简易兼容
