@@ -1,6 +1,6 @@
 import EventUtil from './base/eventUtil'
 import BackGround from './runtime/background'
-import GameInfo from './runtime/gameInfo'
+import GameInfo from './runtime/gameinfo'
 import DataBus from './databus'
 
 let ctx = canvas.getContext('2d')
