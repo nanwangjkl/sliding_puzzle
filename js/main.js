@@ -1,6 +1,8 @@
+/* global canvas */
+
 import EventUtil from './base/eventUtil'
 import BackGround from './runtime/background'
-import GameInfo from './runtime/gameinfo'
+import GameInfo from './runtime/gameInfo'
 import DataBus from './databus'
 
 let ctx = canvas.getContext('2d')
@@ -10,57 +12,57 @@ let databus = new DataBus()
  * 游戏主函数
  */
 export default class Main {
-  constructor() {
+  constructor () {
     this.bg = new BackGround(ctx)
     this.gameInfo = new GameInfo()
 
-    let eventUtil = new EventUtil(((e) => {
+    this.eventUtil = new EventUtil((e) => {
       this.gameInfo.tap(e)
-    }).bind(this), ((e) => {
-      this.movePieces(e.direction);
-    }).bind(this))
+    }, (e) => {
+      this.movePieces(e.direction)
+    })
 
     databus.reset()
 
     window.requestAnimationFrame(
       this.loop.bind(this),
       databus.pieces.forEach((item, position) => {
-        item.render(ctx);
+        item.render(ctx)
       })
     )
   }
 
   /**
    * 移动方块的方法
-   * 
+   *
    * @param {any} direction 移动方向
-   * @returns 
+   * @returns
    * @memberof Main
    */
-  movePieces(direction) {
+  movePieces (direction) {
     let targetPiece
     switch (direction) {
       case 'up':
         targetPiece = databus.emptyPosition + databus.stage
-        break;
+        break
       case 'down':
         targetPiece = databus.emptyPosition - databus.stage
-        break;
+        break
       case 'left':
         targetPiece = databus.emptyPosition + 1
         if (Math.floor(targetPiece / databus.stage) !== Math.floor(databus.emptyPosition / databus.stage)) {
           // 如果两个商不相等，说明左右滑动出现了换行现象，不能执行
-          return;
+          return
         }
-        break;
+        break
       case 'right':
         targetPiece = databus.emptyPosition - 1
         if (Math.floor(targetPiece / databus.stage) !== Math.floor(databus.emptyPosition / databus.stage)) {
-          return;
+          return
         }
-        break;
+        break
       default:
-        break;
+        break
     }
     databus.pieces.forEach((item) => {
       if (item.position === targetPiece) {
@@ -70,7 +72,7 @@ export default class Main {
     })
   }
 
-  checkGameOver() {
+  checkGameOver () {
     if (databus.gameOver || databus.pieces.length === 0) {
       return
     }
@@ -87,22 +89,22 @@ export default class Main {
    * canvas重绘函数
    * 每一帧重新绘制所有的需要展示的元素
    */
-  render() {
+  render () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     this.bg.render(ctx)
     databus.pieces.forEach((item) => {
-      item.render(ctx);
+      item.render(ctx)
     })
     this.gameInfo.render(ctx)
   }
 
   // 游戏逻辑更新主函数
-  update() {
+  update () {
     // 统计是否有动画正在播放
     let isAniPlaying = false
     databus.pieces.forEach((item) => {
-      item.update();
+      item.update()
       if (item.ani !== 1) {
         isAniPlaying = true
       }
@@ -115,7 +117,7 @@ export default class Main {
   }
 
   // 实现游戏帧循环
-  loop() {
+  loop () {
     this.update()
     this.render()
 

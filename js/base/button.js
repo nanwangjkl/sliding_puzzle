@@ -1,12 +1,13 @@
+/* global Image */
 
 /**
  * 一个Button基础类
- * 
+ *
  * @export
  * @class Button
  */
 export default class Button {
-  constructor(src, x, y, width, height) {
+  constructor (src, x, y, width, height) {
     this.img = new Image()
     this.img.src = src
     this.x = x
@@ -15,11 +16,11 @@ export default class Button {
     this.width = width
   }
 
-  render(ctx) {
+  render (ctx) {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
   }
 
-  isTapped(x, y) {
+  isTapped (x, y) {
     if (x > this.x && x < (this.x + this.width) && y > this.y && y < (this.y + this.height)) {
       return true
     }

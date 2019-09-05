@@ -1,3 +1,5 @@
+/* global Image */
+
 import DataBus from '../databus'
 import Bezier from '../libs/bezier'
 
@@ -10,7 +12,7 @@ const ANI_SPEED = 0.2
 let databus = new DataBus()
 let easeInOut = Bezier(0.42, 0, 0.58, 1)
 
-function getPositionXY(position) {
+function getPositionXY (position) {
   let width = databus.contentWidth / databus.stage
   let result = {}
   result.x = databus.contentPadding + (position % databus.stage) * width
@@ -19,14 +21,13 @@ function getPositionXY(position) {
 }
 
 export default class Piece {
-
   /**
    * Creates an instance of Piece.
-   * @param {number} [index=0] 该拼图的序数
-   * @param {number} [position=0] 该拼图当前的位置
+   * @param {number} [index = 0] 该拼图的序数
+   * @param {number} [position = 0] 该拼图当前的位置
    * @memberof Piece
    */
-  constructor(index = 0, position = 0) {
+  constructor (index = 0, position = 0) {
     this.index = index
     this.position = position
     this.visible = true
@@ -60,7 +61,7 @@ export default class Piece {
   }
 
   // 设定新的方块位置
-  move(position = 0) {
+  move (position = 0) {
     this.ani = 0
     this.position = position
     let positionXY = getPositionXY(position)
@@ -71,7 +72,7 @@ export default class Piece {
   }
 
   // 更新方块位置
-  update() {
+  update () {
     if (this.ani >= 1) {
       this.ani = 1
       this.x = this.newX
@@ -84,9 +85,8 @@ export default class Piece {
   }
 
   // 绘制方块
-  render(ctx) {
-    if (!this.visible)
-      return
+  render (ctx) {
+    if (!this.visible) { return }
 
     ctx.drawImage(
       this.img,

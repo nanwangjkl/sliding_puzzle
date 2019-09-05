@@ -1,3 +1,5 @@
+/* global Image */
+
 import DataBus from '../databus'
 import Button from '../base/button'
 import Piece from '../models/piece'
@@ -7,7 +9,6 @@ let databus = new DataBus()
 let gameMap = new GameMap()
 
 const helpButtonPadding = 15
-
 
 // 拼图图片
 const PUZZLE_EASY_SRC = 'images/puzzle-easy.jpg'
@@ -66,9 +67,8 @@ const IMG_REPLAY_HEIGHT = 200
 let instance
 
 export default class GameInfo {
-  constructor() {
-    if (instance)
-      return instance
+  constructor () {
+    if (instance) { return instance }
     instance = this
 
     // 开始菜单背景
@@ -81,7 +81,7 @@ export default class GameInfo {
       imgStartRatio * IMG_START_HEIGHT
     )
 
-    //开始菜单按钮
+    // 开始菜单按钮
     let btnRatio = (databus.screenWidth * 0.4) / IMG_EASY_WIDTH
     this.btnEasy = new Button(
       IMG_EASY_SRC,
@@ -145,7 +145,7 @@ export default class GameInfo {
       hintContentRatio * IMG_HINT_CONTENT_WIDTH,
       hintContentRatio * IMG_HINT_CONTENT_HEIGHT
     )
-    
+
     // 帮助按钮
     let helpRatio = (databus.screenWidth * 0.12) / IMG_HELP_WIDTH
     this.btnHelp = new Button(
@@ -167,7 +167,7 @@ export default class GameInfo {
     )
   }
 
-  tap(event) {
+  tap (event) {
     if (!databus.gameStart) {
       return this.tapGameStart(event)
     }
@@ -177,7 +177,7 @@ export default class GameInfo {
     return this.tapGameOver(event)
   }
 
-  tapGameStart(event) {
+  tapGameStart (event) {
     if (this.btnEasy.isTapped(event.x, event.y)) {
       databus.stage = 3
       databus.gameStart = true
@@ -212,7 +212,7 @@ export default class GameInfo {
     // 选择随机地图并将图块放进数列中
     let randomMap = gameMap.getMap(databus.stage)
     for (let i = 0; i < randomMap.length; i++) {
-      let position = randomMap[i] - 1;
+      let position = randomMap[i] - 1
       databus.pieces.push(new Piece(i, position, databus.stage))
     }
 
@@ -221,35 +221,39 @@ export default class GameInfo {
     this.puzzleImg.src = databus.puzzleImg.src
   }
 
-  tapGamePlaying(event) {
+  tapGamePlaying (event) {
     if (databus.showHelp && this.helpContent.isTapped(event.x, event.y)) {
-      return databus.showHelp = false
+      databus.showHelp = false
+      return
     }
 
     if (databus.showHint && this.hintContent.isTapped(event.x, event.y)) {
-      return databus.showHint = false
+      databus.showHint = false
+      return
     }
 
     if (this.btnReplay.isTapped(event.x, event.y)) {
       databus.reset()
+      return
     }
 
     if (this.btnHelp.isTapped(event.x, event.y)) {
-      return databus.showHelp = true
+      databus.showHelp = true
+      return
     }
 
     if (this.btnHint.isTapped(event.x, event.y)) {
-      return databus.showHint = true
+      databus.showHint = true
     }
   }
 
-  tapGameOver(event) {
+  tapGameOver (event) {
     if (this.btnReplay.isTapped(event.x, event.y)) {
       databus.reset()
     }
   }
 
-  render(ctx) {
+  render (ctx) {
     if (!databus.gameStart) {
       return this.renderGameStart(ctx)
     }
@@ -259,23 +263,23 @@ export default class GameInfo {
     return this.renderGameOver(ctx)
   }
 
-  renderGameStart(ctx) {
+  renderGameStart (ctx) {
     // 绘制半透明背景
-    ctx.fillStyle = "black";
-    ctx.globalAlpha = 0.6;
-    ctx.fillRect(0, 0, databus.screenWidth, databus.screenHeight);
-    ctx.globalAlpha = 1;
+    ctx.fillStyle = 'black'
+    ctx.globalAlpha = 0.6
+    ctx.fillRect(0, 0, databus.screenWidth, databus.screenHeight)
+    ctx.globalAlpha = 1
 
     this.imgStart.render(ctx)
     this.btnEasy.render(ctx)
     this.btnMiddle.render(ctx)
     this.btnHard.render(ctx)
   }
-  renderGamePlaying(ctx) {
+  renderGamePlaying (ctx) {
     // 绘制时间
     this.timeBanner.render(ctx)
-    ctx.fillStyle = "#ffffff"
-    ctx.font = "15px Arial"
+    ctx.fillStyle = '#ffffff'
+    ctx.font = '15px Arial'
     ctx.fillText(
       databus.getCurrentTime(),
       this.timeBanner.x + (this.timeBanner.width / 2 - 18),
@@ -284,12 +288,12 @@ export default class GameInfo {
 
     this.btnHelp.render(ctx)
     this.btnHint.render(ctx)
-    this.btnReplay.render(ctx)    
+    this.btnReplay.render(ctx)
     if (databus.showHelp) {
-      ctx.fillStyle = "black";
-      ctx.globalAlpha = 0.6;
-      ctx.fillRect(0, 0, databus.screenWidth, databus.screenHeight);
-      ctx.globalAlpha = 1;
+      ctx.fillStyle = 'black'
+      ctx.globalAlpha = 0.6
+      ctx.fillRect(0, 0, databus.screenWidth, databus.screenHeight)
+      ctx.globalAlpha = 1
       this.helpContent.render(ctx)
     }
     if (databus.showHint) {
@@ -304,8 +308,7 @@ export default class GameInfo {
     }
   }
 
-  renderGameOver(ctx, score) {
-
+  renderGameOver (ctx, score) {
     ctx.drawImage(
       this.puzzleImg,
       databus.contentPadding,
@@ -317,17 +320,17 @@ export default class GameInfo {
     this.btnReplay.render(ctx)
 
     // 绘制半透明背景
-    ctx.fillStyle = "black";
-    ctx.globalAlpha = 0.6;
+    ctx.fillStyle = 'black'
+    ctx.globalAlpha = 0.6
     ctx.fillRect(databus.contentPadding, databus.contentPaddingTop, databus.contentWidth, 50)
-    ctx.globalAlpha = 1;
+    ctx.globalAlpha = 1
 
-    ctx.fillStyle = "#ffffff"
-    ctx.font = "18px Arial"
+    ctx.fillStyle = '#ffffff'
+    ctx.font = '18px Arial'
     ctx.fillText(
       '恭喜！您用' + databus.finalTime + '完成了拼图！',
       databus.contentPadding + 10,
-      databus.contentPaddingTop + 30,
+      databus.contentPaddingTop + 30
     )
   }
 }
