@@ -8,7 +8,7 @@
 
 ## 简介
 
-一个微信小程序游戏，基于 [pixi.js](https://github.com/davidfig/pixi-scrollbox) 和 [JetLua/fish](https://github.com/JetLua/fish)  微信小游戏适配库实现。滑动进行方块拼接
+一个微信小程序游戏，基于 [pixi.js](https://github.com/pixijs/pixi.js/) 和 [JetLua/fish](https://github.com/JetLua/fish)  微信小游戏适配库实现。滑动进行方块拼接
 
 ![screenshot](screenshot.png)
 
