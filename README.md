@@ -45,12 +45,12 @@
 │   ├── preload.js                       // 载入界面
 │   └── prepare.js                       // 资源加载类
 ├── utils
-│   ├── constants.js                      // 常量
-│   ├── functions.js                      // 通用方法
-│   ├── gamemap.js                        // 用于提供游戏的随机地图
+│   ├── constants.js                     // 常量
+│   ├── functions.js                     // 通用方法
+│   ├── gamemap.js                       // 用于提供游戏的随机地图
 │   ├── index.js
-│   └── swipelistener.js                  // 用于处理游戏内划动事件
-├── app.js                                // 游戏入口主函数
-└── config.js                             // 游戏配置
+│   └── swipelistener.js                 // 用于处理游戏内划动事件
+├── app.js                               // 游戏入口主函数
+└── config.js                            // 游戏配置
 
 ```
