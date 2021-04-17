@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "useBuiltIns": "entry"
+    }]
+  ],
+
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/proposal-export-default-from",
+    "@babel/proposal-export-namespace-from",
+    ["@babel/transform-runtime", {
+      "corejs": false,
+      "helpers": false,
+      "regenerator": true
+    }]
+  ]
+}

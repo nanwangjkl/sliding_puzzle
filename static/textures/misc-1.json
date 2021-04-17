@@ -1,0 +1,45 @@
+{"frames": {
+
+"border.png":
+{
+	"frame": {"x":1,"y":1,"w":1020,"h":1020},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1020,"h":1020},
+	"sourceSize": {"w":1020,"h":1020}
+},
+"puzzle-easy.jpg":
+{
+	"frame": {"x":1,"y":1023,"w":1000,"h":1000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":1000},
+	"sourceSize": {"w":1000,"h":1000}
+},
+"puzzle-hard.jpg":
+{
+	"frame": {"x":1003,"y":1023,"w":1000,"h":1000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":1000},
+	"sourceSize": {"w":1000,"h":1000}
+},
+"puzzle-middle.jpg":
+{
+	"frame": {"x":1023,"y":1,"w":1000,"h":1000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":1000},
+	"sourceSize": {"w":1000,"h":1000}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "misc-1.png",
+	"format": "RGBA8888",
+	"size": {"w":2024,"h":2024},
+	"scale": "1",
+	"related_multi_packs": [ "misc-0.json", "misc-2.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:7fe851b857c9edbe8c9de80f3110a45f:195cb92916a85bea8b9829bfcf27cc5b:2bc8c3d95178b58d2f5ba147043e6503$"
+}
+}

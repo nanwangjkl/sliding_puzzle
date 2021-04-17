@@ -1,0 +1,40 @@
+{
+  "name": "sliding_puzzle_pixi",
+  "version": "1.0.0",
+  "description": "Weixin Mini Game, Sliding Puzzle.",
+  "main": "dist/game.js",
+  "scripts": {
+    "dev": "webpack -w",
+    "build": "webpack -p"
+  },
+  "browserslist": [
+    "ios >= 8",
+    "android >= 5"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:nanwangjkl/sliding_puzzle_pixi.git"
+  },
+  "author": "Nan, Wang",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
+    "@babel/runtime-corejs2": "^7.1.2",
+    "babel-loader": "^8.0.4",
+    "bezier-easing": "^2.1.0",
+    "pixi.js": "^4.8.2",
+    "raw-loader": "^0.5.1",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  },
+  "dependencies": {}
+}
