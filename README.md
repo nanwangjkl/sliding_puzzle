@@ -8,7 +8,7 @@
 
 ## 简介
 
-一个微信小程序游戏，基于pixi.js和 [JetLua/fish ](https://github.com/JetLua/fish)  微信小游戏适配库实现。滑动进行方块拼接
+一个微信小程序游戏，基于 [pixi.js](https://github.com/davidfig/pixi-scrollbox) 和 [JetLua/fish](https://github.com/JetLua/fish)  微信小游戏适配库实现。滑动进行方块拼接
 
 ![screenshot](screenshot.png)
 
@@ -20,7 +20,7 @@
 
 使用 `npm run dev` 进行动态构建
 
-打开微信开发者工具，选择`dist`目录导入项目文件进行开发
+打开微信开发者工具，选择 `dist` 目录导入项目文件进行开发
 
 ## 源码目录介绍
 
