@@ -46,7 +46,6 @@
   },
   "compileType": "game",
   "libVersion": "2.3.0",
-  "appid": "wx538da79ec4a26bea",
   "projectname": "sliding_puzzle",
   "isGameTourist": false,
   "condition": {
