@@ -48,6 +48,7 @@
   "libVersion": "2.3.0",
   "projectname": "sliding_puzzle",
   "isGameTourist": false,
+  "appid": "wx538da79ec4a26bea",
   "condition": {
     "search": {
       "list": []
